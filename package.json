@@ -1,0 +1,21 @@
+{
+  "name": "webdriver-io-examples",
+  "version": "1.0.0",
+  "description": "Example tests using WebdriverIO",
+  "main": "conf.js",
+  "dependencies": {
+    "webdriverio": "^3.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "wdio"
+  },
+  "keywords": [
+    "webdriver-io",
+    "examples",
+    "e2e",
+    "tests"
+  ],
+  "author": "Brine",
+  "license": "ISC"
+}
