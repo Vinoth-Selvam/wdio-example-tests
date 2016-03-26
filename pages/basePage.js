@@ -5,7 +5,7 @@ var BasePage = function() {
      */
     this.goto = function() {
         browser.url('/' + this.url);
-        //this.loaded();
+        this.loaded();
     };
 
     /**
@@ -14,10 +14,12 @@ var BasePage = function() {
      * @return {bool} 
      */
     this.isLoaded = function() {
-        console.log('is it loaded?');
         return this.pageLoaded;
     };
 
+    /**
+     * wrapper for hitting enter key
+     */
     this.hitEnter = function() {
         browser.keys('Enter');
     };

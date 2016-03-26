@@ -136,7 +136,10 @@ exports.config = {
     // variables, such as `browser`. It is the perfect place to define custom commands.
     before: function (capabilities, specs) {
         browser.windowHandleSize({width: 1024, height: 800});
-        //browser.timeoutsImplicitWait(5000);
+        browser.timeoutsImplicitWait(5000);
+        // better jasmine 2 reports...
+        var SpecReporter = require('jasmine-spec-reporter');
+        jasmine.getEnv().addReporter(new SpecReporter({displayStacktrace: 'spec'}));
     },
     //
     // Hook that gets executed before the suite starts
@@ -145,9 +148,8 @@ exports.config = {
     //
     // Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
     // beforeEach in Mocha)
-    beforeHook: function () {
-        browser.timeoutsImplicitWait(5000);
-    },
+    // beforeHook: function () {
+    // },
     //
     // Hook that gets executed _after_ a hook within the suite starts (e.g. runs after calling
     // afterEach in Mocha)
