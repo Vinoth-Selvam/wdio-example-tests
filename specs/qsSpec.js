@@ -37,13 +37,13 @@ describe('Quality Shepherd Site', function() {
 
     describe('search', function() {
         it('should return no results message', function() {
-            qsHomePage.searchFor('sfdslkjsfkjslkdf');
+            qsHomePage.search.searchFor('sfdslkjsfkjslkdf');
 
             expect(qsHomePage.noResultsMsg.isExisting()).toBe(true);
         });
 
         it('should return search results', function() {
-            qsHomePage.searchFor('protractor');
+            qsHomePage.search.searchFor('protractor');
             
             expect(qsHomePage.posts.value.length).toBeGreaterThan(0);
         });

@@ -1,4 +1,5 @@
 var basePage = require('./basePage');
+var searchModule = require('./searchModule');
 
 var qsHomePage = Object.create(basePage, {
     // required for direct navigation (eg. page.goto())
@@ -6,24 +7,17 @@ var qsHomePage = Object.create(basePage, {
     // should return true when on page
     pageLoaded: { get: function() { return this.siteTitle.isVisible(); }},
 
+    // modules
+    search: { value: Object.create(this, searchModule) },
+
+    // locators
     title: { get: function() { return 'towards better software… » Quality Shepherd  '; }},
     siteTitle: { get: function() { return browser.element('h1.site-title'); }},
     posts: { get: function() { return browser.elements('div.post'); }},
     // search
-    searchBox: { get: function() { return browser.element('input#s'); }},
     noResultsMsg: { get: function() { return browser.element('.search-no-results'); }},
     // sidebar
     sidebar: { get: function() { return browser.element('div#sidebar'); }},
     githubLink: { get: function() { return browser.element('a#githubLink'); }},
-
-
-    /**
-     * search the site
-     * @param  {string} searchText 
-     */
-    searchFor: { value: function(searchText) {
-        this.searchBox.setValue(searchText);
-        this.hitEnter();
-    }}
 });
 module.exports = qsHomePage;
